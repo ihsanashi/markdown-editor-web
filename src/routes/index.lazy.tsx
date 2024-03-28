@@ -1,5 +1,5 @@
 import { createLazyFileRoute } from '@tanstack/react-router';
-import { Box, Grid, ScrollArea, TextArea } from '@radix-ui/themes';
+import { Box, Flex, ScrollArea } from '@radix-ui/themes';
 
 export const Route = createLazyFileRoute('/')({
   component: Index,
@@ -7,20 +7,20 @@ export const Route = createLazyFileRoute('/')({
 
 function Index() {
   return (
-    <Box width="98%" className="p-2.5">
-      <Grid columns="2" gap="2" className="divide-x">
-        <Box>
+    <Box width="98%" className="h-[calc(99vh-_40px)] p-2.5">
+      <Flex className="h-full divide-x">
+        <Flex className="h-full" flexGrow="1">
           {/* Temporary usage until markdown editor is installed */}
-          <ScrollArea scrollbars="vertical" type="scroll">
-            <TextArea placeholder="Enter your content here..." />
+          <ScrollArea className="h-full" scrollbars="vertical" type="scroll">
+            <h1>Editor area</h1>
           </ScrollArea>
-        </Box>
-        <Box className="pl-2">
-          <ScrollArea scrollbars="vertical" type="scroll">
+        </Flex>
+        <Flex className="h-full pl-2" flexGrow="1">
+          <ScrollArea className="h-full" scrollbars="vertical" type="scroll">
             <h1>Preview area</h1>
           </ScrollArea>
-        </Box>
-      </Grid>
+        </Flex>
+      </Flex>
     </Box>
   );
 }
